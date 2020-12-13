@@ -31,7 +31,7 @@ Game.chosungQuiz(): ArrayList<Any>
 2. answer // `string`
 3. chosung // `ArrayList<String>`
 
-### `ChosungType`
+### ChosungType
 1. `FOOD` : 음식
 2. `ARTIST` : 국내 가수
 3. `COUNTRY` : 국가
