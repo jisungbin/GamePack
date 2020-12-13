@@ -1,5 +1,5 @@
 # GamePack [![](https://jitpack.io/v/sungbin5304/GamePack.svg)](https://jitpack.io/#sungbin5304/GamePack)
-android gamepack library
+android korean gamepack library
 
 -----
 
