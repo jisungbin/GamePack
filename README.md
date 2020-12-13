@@ -27,9 +27,9 @@ Game.chosungQuiz(): ArrayList<Any>
 ```
 
 ### Result `index`
-1. quiz type name
-2. answer
-3. chosung
+1. quiz type name // `string`
+2. answer // `string`
+3. chosung // `ArrayList<String>`
 
 ### `ChosungType`
 1. `FOOD` : 음식
