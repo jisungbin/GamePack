@@ -14,6 +14,7 @@ repositories {
 dependencies {
   implementation 'com.github.sungbin5304:GamePack:{version}'
 }
+```
 
 # Usage
 ## ChosungQuiz
