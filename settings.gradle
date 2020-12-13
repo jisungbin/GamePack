@@ -1,0 +1,3 @@
+include ':gamepack'
+include ':app'
+rootProject.name = "GamePack"
