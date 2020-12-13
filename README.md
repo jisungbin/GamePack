@@ -48,3 +48,10 @@ Game.chosungQuiz(): ArrayList<Any>
 ## WordChain
 
 // todo
+
+-----
+
+# License
+`GamePack` license is under the [MIT](https://github.com/sungbin5304/GamePack/blob/master/LICENSE) License.
+
+# Happy Coding :)
