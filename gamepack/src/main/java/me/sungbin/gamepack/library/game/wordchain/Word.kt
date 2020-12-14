@@ -1,17 +1,19 @@
 package me.sungbin.gamepack.library.game.wordchain
 
 import android.content.Context
-import me.sungbin.gamepack.library.util.Util.readAssets
+import me.sungbin.gamepack.library.util.Util
 
 
 object Word {
 
     internal lateinit var WORDS: String
+    private lateinit var apiKey: String
     private val wordsCache = HashMap<String, List<String>>()
     private val usedWords = ArrayList<String>()
 
-    fun init(context: Context) {
-        WORDS = readAssets(context, "words.txt")
+    fun init(context: Context, apiKey: String = "") {
+        WORDS = Util.readAssets(context, "words.txt")
+        this.apiKey = apiKey
     }
 
     private val duumList = arrayOf(
@@ -498,10 +500,34 @@ object Word {
         usedWords.clear()
     }
 
+    fun isRealWord(fullWord: String) = WORDS.contains(fullWord)
+
     fun isUseableWord(fullWord: String) = !usedWords.contains(fullWord) && WORDS.contains(fullWord)
 
     fun useWord(fullWord: String) = usedWords.add(fullWord)
 
     fun checkIsUsed(fullWord: String) = usedWords.contains(fullWord)
+
+    @Throws(Exception::class)
+    fun searchWord(fullWord: String): String? {
+        return try {
+            var searchResult: String? = null
+
+            val searchThread = Thread {
+                searchResult = Util.getHtml(generationSearchAddress(fullWord))
+            }
+
+            searchThread.start()
+            searchThread.join()
+
+            if (searchResult == null) null
+            else searchResult!!.split("<definition>")[1].split("[")[2].split("]")[0].trim()
+        } catch (exception: Exception) {
+            throw exception
+        }
+    }
+
+    private fun generationSearchAddress(fullWord: String) =
+        "https://stdict.korean.go.kr/api/search.do?key=$apiKey&type_search=search&q=$fullWord"
 
 }

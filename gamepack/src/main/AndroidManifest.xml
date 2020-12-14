@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="me.sungbin.gamepack.library">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.sungbin.gamepack.library">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
