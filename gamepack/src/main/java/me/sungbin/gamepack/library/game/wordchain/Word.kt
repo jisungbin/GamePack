@@ -501,7 +501,12 @@ object Word {
         usedWords.clear()
     }
 
-    fun isRealWord(fullWord: String) = WORDS.contains(fullWord)
+    fun isRealWord(fullWord: String): Boolean {
+        WORDS.split("\n").map {
+            if (it.trim() == fullWord) return true
+        }
+        return false
+    }
 
     fun isUseableWord(fullWord: String) = !usedWords.contains(fullWord) && WORDS.contains(fullWord)
 
