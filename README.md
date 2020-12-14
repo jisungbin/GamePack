@@ -69,6 +69,9 @@ Word.getWordMean(fullWord: String): String?
 
 -----
 
+# Example
+You can see full-example at [here](https://github.com/sungbin5304/SungBinBot/blob/master/app/src/main/java/me/sungbin/sungbinbot/ui/MainActivity.kt).
+
 # License
 `GamePack` license is under the [MIT](https://github.com/sungbin5304/GamePack/blob/master/LICENSE) License.
 
