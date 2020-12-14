@@ -522,6 +522,8 @@ object Word {
 
             if (searchResult == null) null
             else searchResult!!.split("<definition>")[1].split("[")[2].split("]")[0].trim()
+        } catch (ignored: IndexOutOfBoundsException) {
+            null
         } catch (exception: Exception) {
             throw exception
         }
