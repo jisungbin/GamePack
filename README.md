@@ -1,4 +1,4 @@
-# GamePack [![](https://jitpack.io/v/sungbin5304/GamePack.svg)](https://jitpack.io/#sungbin5304/GamePack)
+# GamePack [![](https://jitpack.io/v/sungbin5304/GamePack.svg)](https://jitpack.io/#sungbin5304/GamePack) [![time tracker](https://wakatime.com/badge/github/sungbin5304/GamePack.svg)](https://wakatime.com/badge/github/sungbin5304/GamePack)
 android korean gamepack library
 
 -----
