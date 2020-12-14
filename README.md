@@ -17,6 +17,15 @@ dependencies {
 ```
 
 # Usage
+## Init
+```kotlin
+# If you use word-mean searching method, must input `apiKey`
+Game.init(context: Context, apiKey: String = "")
+```
+
+### apiKey
+You can get `apiKey` from [here](https://stdict.korean.go.kr/openapi/openApiInfo.do).
+
 ## ChosungQuiz
 ```kotlin
 # Specific Type
@@ -44,13 +53,19 @@ Game.chosungQuiz(): ArrayList<Any>
 10. `CHEMISTRY` : 화학
 11. `WORDS` : 단어
 
-
 ## WordChain
+```kotlin
+Word.checkDuum(fullWord: String): String?
+Word.loadUseableWord(fullWord: String): String? 
+Word.clearUseWord() 
+Word.isRealWord(fullWord: String): Boolean
+Word.isUseableWord(fullWord: String): Boolean
+Word.useWord(fullWord: String)
+Word.checkIsUsed(fullWord: String): Boolean
 
-// todo
-
-### TODO
-1. [ ] provide word mean
+@Throws(Exception::class) # This method is require `apiKey` at `Word.init(//)`.
+Word.getWordMean(fullWord: String): String?
+```
 
 -----
 
