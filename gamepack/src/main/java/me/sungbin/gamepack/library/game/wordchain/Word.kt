@@ -6,22 +6,13 @@ import me.sungbin.gamepack.library.util.Util.readAssets
 
 object Word {
 
-    internal lateinit var context: Context
-    private lateinit var _WORDS: String
+    internal lateinit var WORDS: String
     private val wordsCache = HashMap<String, List<String>>()
     private val usedWords = ArrayList<String>()
 
     fun init(context: Context) {
-        this.context = context
+        WORDS = readAssets(context, "words.txt")
     }
-
-    val WORDS: String
-        get() {
-            if (!::_WORDS.isInitialized) {
-                _WORDS = readAssets(context, "words.txt")
-            }
-            return _WORDS
-        }
 
     private val duumList = arrayOf(
         arrayOf("라", "나"),
@@ -484,8 +475,8 @@ object Word {
 
     fun loadUseableWord(fullWord: String): String? {
         val lastWord = fullWord.last().toString()
-        if (wordsCache.contains(lastWord)) { // 마지막 글자로 단어 조회 한 번 이상 됬을 때
-            wordsCache[lastWord]!!.map {
+        if (wordsCache.containsKey(lastWord)) { // 마지막 글자로 단어 조회 한 번 이상 됬을 때
+            wordsCache[lastWord]!!.shuffled().map {
                 if (!usedWords.contains(it)) {
                     useWord(it)
                     return it
@@ -493,9 +484,11 @@ object Word {
             }
             return null
         } else { // 마지막 글자로 단어 조회가 한 번도 안됬을 때 -> 단어 조회만 하고 재귀호출
-            val words = ArrayList<String>()
-            words.addAll(WORDS.split("\n"))
-            words.filter { it.startsWith(lastWord) }
+            // Reference: https://umbum.dev/599
+            val words = ArrayList<String>().run {
+                addAll(WORDS.split("\n"))
+                asSequence().filter { it.startsWith(lastWord) }.toList()
+            }
             wordsCache[lastWord] = words
             return loadUseableWord(fullWord)
         }
