@@ -49,6 +49,9 @@ Game.chosungQuiz(): ArrayList<Any>
 
 // todo
 
+### TODO
+1. [ ] provide word mean
+
 -----
 
 # License
