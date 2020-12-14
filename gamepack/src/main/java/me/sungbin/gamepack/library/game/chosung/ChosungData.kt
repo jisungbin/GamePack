@@ -1,6 +1,6 @@
 package me.sungbin.gamepack.library.game.chosung
 
-import me.sungbin.gamepack.library.game.wordchain.Word.LIST
+import me.sungbin.gamepack.library.game.wordchain.Word.WORDS
 
 internal object ChosungData {
     const val FOOD = """
@@ -3016,7 +3016,7 @@ SES
             is ChosungType.ELEMENT -> ELEMENT
             is ChosungType.POCKETMON -> POCKETMON
             is ChosungType.CHEMISTRY -> CHEMISTRY
-            is ChosungType.WORDS -> LIST
+            is ChosungType.WORDS -> WORDS
         }
     }
 }

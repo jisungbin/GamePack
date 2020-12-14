@@ -7,16 +7,16 @@ import me.sungbin.gamepack.library.util.Util.readAssets
 object Word {
 
     internal lateinit var context: Context
-    private lateinit var WORDS: String
+    private lateinit var _WORDS: String
     private val wordsCache = HashMap<String, List<String>>()
     private val usedWords = ArrayList<String>()
 
-    val LIST: String
+    val WORDS: String
         get() {
-            if (!::WORDS.isInitialized) {
-                WORDS = readAssets(context, "words.txt")
+            if (!::_WORDS.isInitialized) {
+                _WORDS = readAssets(context, "words.txt")
             }
-            return WORDS
+            return _WORDS
         }
 
     private val duumList = arrayOf(
@@ -504,11 +504,6 @@ object Word {
     fun isUseableWord(fullWord: String) = !usedWords.contains(fullWord) && WORDS.contains(fullWord)
 
     fun useWord(fullWord: String) = usedWords.add(fullWord)
-
-    fun addCustomWord(word: String) {
-        WORDS += "\n$word"
-        wordsCache.clear()
-    }
 
     fun checkIsUsed(fullWord: String) = usedWords.contains(fullWord)
 
