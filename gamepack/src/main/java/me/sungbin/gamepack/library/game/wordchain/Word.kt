@@ -11,6 +11,10 @@ object Word {
     private val wordsCache = HashMap<String, List<String>>()
     private val usedWords = ArrayList<String>()
 
+    fun init(context: Context) {
+        this.context = context
+    }
+
     val WORDS: String
         get() {
             if (!::_WORDS.isInitialized) {

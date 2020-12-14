@@ -6,12 +6,15 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import me.sungbin.gamepack.library.Game
 import me.sungbin.gamepack.library.game.chosung.ChosungType
+import me.sungbin.gamepack.library.game.wordchain.Word
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Word.init(applicationContext)
 
         findViewById<Button>(R.id.btn_refresh).setOnClickListener {
             val value = Game.chosungQuiz(ChosungType.WORDS())
