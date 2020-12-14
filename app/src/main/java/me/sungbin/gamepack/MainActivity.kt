@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun log(vararg value: Any) {
+    private fun <T> log(vararg value: T) {
         for ((index, element) in value.withIndex()) {
             Log.w("Game Logger", "[$index] $element")
         }

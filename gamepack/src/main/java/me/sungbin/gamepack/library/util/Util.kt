@@ -9,11 +9,12 @@ import android.content.Context
 
 internal object Util {
 
-    fun anyArrayOf(vararg value: Any) =  ArrayList<Any>().apply { addAll(value) }
+    fun anyArrayOf(vararg value: Any) = ArrayList<Any>().apply { addAll(value) }
 
     fun readAssets(context: Context, name: String): String {
         val assetManager = context.assets
-        val inputStream= assetManager.open(name)
+        val inputStream = assetManager.open(name)
         return inputStream.bufferedReader().use { it.readText() }
     }
+
 }

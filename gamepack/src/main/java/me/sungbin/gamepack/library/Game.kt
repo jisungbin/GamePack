@@ -14,7 +14,7 @@ object Game {
         val word = words[index].trim()
         val chosungs = ArrayList<String>()
         for (element in word) { // Char
-            chosungs.add(HangulParser.disassemble(element)[0])
+            chosungs.add(HangulParser.disassemble(element).first())
         }
         return anyArrayOf(type.name, word, chosungs)
     }
