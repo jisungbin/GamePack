@@ -9,6 +9,7 @@ object Word {
     internal lateinit var WORDS: String
     private lateinit var apiKey: String
     private val wordsCache = HashMap<String, List<String>>()
+    private val wordMeanCache = HashMap<String, String>()
     private val usedWords = ArrayList<String>()
 
     fun init(context: Context, apiKey: String = "") {
@@ -509,10 +510,11 @@ object Word {
     fun checkIsUsed(fullWord: String) = usedWords.contains(fullWord)
 
     @Throws(Exception::class)
-    fun searchWord(fullWord: String): String? {
+    fun getWordMean(fullWord: String): String? {
         return try {
-            var searchResult: String? = null
+            if (wordMeanCache[fullWord] != null) wordMeanCache[fullWord]
 
+            var searchResult: String? = null
             val searchThread = Thread {
                 searchResult = Util.getHtml(generationSearchAddress(fullWord))
             }
@@ -521,7 +523,12 @@ object Word {
             searchThread.join()
 
             if (searchResult == null) null
-            else searchResult!!.split("<definition>")[1].split("[")[2].split("]")[0].trim()
+            else {
+                val value =
+                    searchResult!!.split("<definition>")[1].split("[")[2].split("]")[0].trim()
+                wordMeanCache[fullWord] = value
+                value
+            }
         } catch (ignored: IndexOutOfBoundsException) {
             null
         } catch (exception: Exception) {

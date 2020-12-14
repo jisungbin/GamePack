@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Word.init(applicationContext, "DCBDED09F8C5E95018DF72136030D9E6")
-        log(Word.searchWord("안녕").toString())
+        log(Word.getWordMean("안녕").toString())
     }
 
     private fun log(message: String) {
