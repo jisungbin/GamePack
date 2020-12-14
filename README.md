@@ -50,7 +50,7 @@ Game.chosungQuiz(): ArrayList<Any>
 // todo
 
 ### TODO
-1. provide word mean
+1. [ ] provide word mean
 
 -----
 
