@@ -19,7 +19,7 @@ dependencies {
 # Usage
 ## Init
 ```kotlin
-# If you use word-mean searching method, must input `apiKey`
+# If you use word-mean searching method, should input `apiKey`
 Game.init(context: Context, apiKey: String = "")
 ```
 
